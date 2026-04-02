@@ -6,6 +6,7 @@ const app: Application = express();
 
 // middlewares
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // routes
