@@ -3,6 +3,7 @@ import { UserStatus } from "../../../generated/prisma/enums";
 import AppError from "../../errorHelpers/AppError";
 import { auth } from "../../lib/auth";
 import { prisma } from "../../lib/prisma";
+import { tokenUtils } from "../../utils/token";
 // import { prisma } from "../../lib/prisma";
 
 interface IRegisterPatientPayload {
@@ -37,8 +38,30 @@ const registerPatient = async (payload: IRegisterPatientPayload) => {
             return patientTx;
         })
 
+        const accessToken = tokenUtils.getAccessToken({
+            userId: data.user.id,
+            role: data.user.role,
+            name: data.user.name,
+            email: data.user.email,
+            status: data.user.status,
+            isDeleted: data.user.isDeleted,
+            emailVerified: data.user.emailVerified
+        })
+
+        const refreshToken = tokenUtils.getRefreshToken({
+            userId: data.user.id,
+            role: data.user.role,
+            name: data.user.name,
+            email: data.user.email,
+            status: data.user.status,
+            isDeleted: data.user.isDeleted,
+            emailVerified: data.user.emailVerified
+        })
+
         return {
             ...data,
+            accessToken,
+            refreshToken,
             patient
         }
     } catch (error) {
@@ -74,7 +97,31 @@ const loginUser = async(payload: ILoginUserPayload) => {
         throw new AppError(status.NOT_FOUND,"User is deleted.")
     }
 
-    return data.user; // extra kore password bad dawa lagbe na better-auth eta internally kore dai.
+    const accessToken = tokenUtils.getAccessToken({
+        userId: data.user.id,
+        role: data.user.role,
+        name: data.user.name,
+        email: data.user.email,
+        status: data.user.status,
+        isDeleted: data.user.isDeleted,
+        emailVerified: data.user.emailVerified
+    })
+
+    const refreshToken = tokenUtils.getRefreshToken({
+        userId: data.user.id,
+        role: data.user.role,
+        name: data.user.name,
+        email: data.user.email,
+        status: data.user.status,
+        isDeleted: data.user.isDeleted,
+        emailVerified: data.user.emailVerified
+    })
+
+    return {
+        ...data,
+        accessToken,
+        refreshToken
+    }; // extra kore password bad dawa lagbe na better-auth eta internally kore dai.
 }
 
 export const AuthService = {
