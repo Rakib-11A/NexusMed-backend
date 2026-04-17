@@ -1,22 +1,22 @@
 import { Gender } from "../../../generated/prisma/enums";
 
+export interface IUpdateDoctorSpecialtyPayload {
+    specialityId: string;
+    shouldDelete?: boolean;
+}
 export interface IUpdateDoctorPayload {
-  name?: string;
-  email?: string;
-  profilePhoto?: string;
-  contactNumber?: string;
-  address?: string;
-
-  registrationNumber?: string;
-  experience?: number;
-  gender?: Gender;
-  appointmentFee?: number;
-  qualification?: string;
-  currentWorkingPlace?: string;
-  designation?: string;
-  averageRating?: number;
-
-  isDeleted?: boolean;
-  deletedAt?: Date;
-
+    doctor?: {
+        name?: string;
+        profilePhoto?: string;
+        contactNumber?: string;
+        address?: string;
+        experience?: number
+        registrationNumber?: string;
+        gender?: Gender;
+        appointmentFee?: number;
+        qualification?: string;
+        currentWorkingPlace?: string;
+        designation?: string;
+    },
+    specialities?: IUpdateDoctorSpecialtyPayload[];
 }
