@@ -65,6 +65,11 @@ export const checkAuth = (...authRoles: UserRole[]) => async(req: Request, res: 
                     throw new AppError(status.FORBIDDEN, "Forbidden access! You do not have permission to access this resources.");
                 }
 
+                req.user = {
+                    userId: user.id,
+                    email: user.email,
+                    role: user.role
+                };
             }
 
             const accessToken = CookieUtils.getCookie(req, 'accessToken');
@@ -83,14 +88,22 @@ export const checkAuth = (...authRoles: UserRole[]) => async(req: Request, res: 
         }
 
         const verifiedToken = jwtUtils.verifyToken(accessToken, envVars.ACCESS_TOKEN_SECRET);
-        
+
         if(!verifiedToken.success) {
             throw new AppError(status.UNAUTHORIZED, "Unauthorized access! Invalid access token.");
         }
-        
-        if(authRoles.length > 0 && !authRoles.includes(verifiedToken.data!.role as UserRole)) {
+
+        const tokenData = verifiedToken.data!;
+
+        if(authRoles.length > 0 && !authRoles.includes(tokenData.role as UserRole)) {
             throw new AppError(status.FORBIDDEN, 'Forbidden access! You do not have permission to acces this resounces.');
         }
+
+        req.user = {
+            userId: tokenData.userId,
+            email: tokenData.email,
+            role: tokenData.role
+        };
 
         next();
         
