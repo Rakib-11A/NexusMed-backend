@@ -1,0 +1,36 @@
+import { Request, Response } from "express";
+import { catchAsync } from "../../shared/catchAsync";
+import { UserService } from "./user.service";
+import { sendResponse } from "../../shared/sendResponse";
+import status from "http-status";
+
+const createDoctor = catchAsync(async(req: Request, res: Response) => {
+    const payload = req.body;
+
+    const result = await UserService.createDoctor(payload);
+
+    sendResponse(res, {
+        httpStatusCode: status.CREATED,
+        success: true,
+        message: "Doctor registered successfully.",
+        data: result
+    })
+});
+
+const createAdmin = catchAsync(async(req: Request, res: Response) => {
+    const payload = req.body;
+    console.log("Admin Payload : \n", payload);
+
+    const result = await UserService.createAdmin(payload);
+
+    sendResponse(res, {
+        httpStatusCode: status.CREATED,
+        success: true,
+        message: "Admin Creatd Successfully.",
+        data: result
+    })
+})
+export const UserController = {
+    createDoctor,
+    createAdmin
+}

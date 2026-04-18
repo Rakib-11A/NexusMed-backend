@@ -31,8 +31,8 @@ export * from "./enums"
  * const prisma = new PrismaClient({
  *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
  * })
- * // Fetch zero or more Specialities
- * const specialities = await prisma.speciality.findMany()
+ * // Fetch zero or more Admins
+ * const admins = await prisma.admin.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -42,7 +42,87 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
+ * Model Admin
+ * 
+ */
+export type Admin = Prisma.AdminModel
+/**
+ * Model Appointment
+ * 
+ */
+export type Appointment = Prisma.AppointmentModel
+/**
+ * Model User
+ * 
+ */
+export type User = Prisma.UserModel
+/**
+ * Model Session
+ * 
+ */
+export type Session = Prisma.SessionModel
+/**
+ * Model Account
+ * 
+ */
+export type Account = Prisma.AccountModel
+/**
+ * Model Verification
+ * 
+ */
+export type Verification = Prisma.VerificationModel
+/**
+ * Model Doctor
+ * 
+ */
+export type Doctor = Prisma.DoctorModel
+/**
+ * Model MedicalReport
+ * 
+ */
+export type MedicalReport = Prisma.MedicalReportModel
+/**
+ * Model Patient
+ * 
+ */
+export type Patient = Prisma.PatientModel
+/**
+ * Model PatientHealthData
+ * 
+ */
+export type PatientHealthData = Prisma.PatientHealthDataModel
+/**
+ * Model Payment
+ * 
+ */
+export type Payment = Prisma.PaymentModel
+/**
+ * Model Prescription
+ * 
+ */
+export type Prescription = Prisma.PrescriptionModel
+/**
+ * Model Review
+ * 
+ */
+export type Review = Prisma.ReviewModel
+/**
+ * Model Schedule
+ * 
+ */
+export type Schedule = Prisma.ScheduleModel
+/**
+ * Model DoctorSchedules
+ * 
+ */
+export type DoctorSchedules = Prisma.DoctorSchedulesModel
+/**
  * Model Speciality
  * 
  */
 export type Speciality = Prisma.SpecialityModel
+/**
+ * Model Doctorspeciality
+ * 
+ */
+export type Doctorspeciality = Prisma.DoctorspecialityModel

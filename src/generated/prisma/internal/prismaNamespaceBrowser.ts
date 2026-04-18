@@ -51,7 +51,23 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Speciality: 'Speciality'
+  Admin: 'Admin',
+  Appointment: 'Appointment',
+  User: 'User',
+  Session: 'Session',
+  Account: 'Account',
+  Verification: 'Verification',
+  Doctor: 'Doctor',
+  MedicalReport: 'MedicalReport',
+  Patient: 'Patient',
+  PatientHealthData: 'PatientHealthData',
+  Payment: 'Payment',
+  Prescription: 'Prescription',
+  Review: 'Review',
+  Schedule: 'Schedule',
+  DoctorSchedules: 'DoctorSchedules',
+  Speciality: 'Speciality',
+  Doctorspeciality: 'Doctorspeciality'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -70,6 +86,245 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const AdminScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  profilePhoto: 'profilePhoto',
+  contactNumber: 'contactNumber',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId'
+} as const
+
+export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
+
+
+export const AppointmentScalarFieldEnum = {
+  id: 'id',
+  videoCallingId: 'videoCallingId',
+  status: 'status',
+  paymentStatus: 'paymentStatus',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  patinetId: 'patinetId',
+  scheduleId: 'scheduleId',
+  doctorId: 'doctorId'
+} as const
+
+export type AppointmentScalarFieldEnum = (typeof AppointmentScalarFieldEnum)[keyof typeof AppointmentScalarFieldEnum]
+
+
+export const UserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  emailVerified: 'emailVerified',
+  image: 'image',
+  role: 'role',
+  status: 'status',
+  needPasswordChange: 'needPasswordChange',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const SessionScalarFieldEnum = {
+  id: 'id',
+  expiresAt: 'expiresAt',
+  token: 'token',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  userId: 'userId'
+} as const
+
+export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+export const AccountScalarFieldEnum = {
+  id: 'id',
+  accountId: 'accountId',
+  providerId: 'providerId',
+  userId: 'userId',
+  accessToken: 'accessToken',
+  refreshToken: 'refreshToken',
+  idToken: 'idToken',
+  accessTokenExpiresAt: 'accessTokenExpiresAt',
+  refreshTokenExpiresAt: 'refreshTokenExpiresAt',
+  scope: 'scope',
+  password: 'password',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
+
+
+export const VerificationScalarFieldEnum = {
+  id: 'id',
+  identifier: 'identifier',
+  value: 'value',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
+
+
+export const DoctorScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  profilePhoto: 'profilePhoto',
+  contactNumber: 'contactNumber',
+  address: 'address',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  registrationNumber: 'registrationNumber',
+  experience: 'experience',
+  gender: 'gender',
+  appointmentFee: 'appointmentFee',
+  qualification: 'qualification',
+  currentWorkingPlace: 'currentWorkingPlace',
+  designation: 'designation',
+  averageRating: 'averageRating',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId'
+} as const
+
+export type DoctorScalarFieldEnum = (typeof DoctorScalarFieldEnum)[keyof typeof DoctorScalarFieldEnum]
+
+
+export const MedicalReportScalarFieldEnum = {
+  id: 'id',
+  reportName: 'reportName',
+  reportLink: 'reportLink',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  patientId: 'patientId'
+} as const
+
+export type MedicalReportScalarFieldEnum = (typeof MedicalReportScalarFieldEnum)[keyof typeof MedicalReportScalarFieldEnum]
+
+
+export const PatientScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  profilePhoto: 'profilePhoto',
+  contactNumber: 'contactNumber',
+  address: 'address',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId'
+} as const
+
+export type PatientScalarFieldEnum = (typeof PatientScalarFieldEnum)[keyof typeof PatientScalarFieldEnum]
+
+
+export const PatientHealthDataScalarFieldEnum = {
+  id: 'id',
+  gender: 'gender',
+  dateOfBirth: 'dateOfBirth',
+  bloodGroup: 'bloodGroup',
+  hasAllergies: 'hasAllergies',
+  hasDiabetes: 'hasDiabetes',
+  height: 'height',
+  weight: 'weight',
+  smokingStatus: 'smokingStatus',
+  dietaryPreferences: 'dietaryPreferences',
+  pregnancyStatus: 'pregnancyStatus',
+  mentalHealthHistory: 'mentalHealthHistory',
+  immunizationStatus: 'immunizationStatus',
+  hasPastSurgeries: 'hasPastSurgeries',
+  recentAnxiety: 'recentAnxiety',
+  recentDepression: 'recentDepression',
+  maritalStatus: 'maritalStatus',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  patientId: 'patientId'
+} as const
+
+export type PatientHealthDataScalarFieldEnum = (typeof PatientHealthDataScalarFieldEnum)[keyof typeof PatientHealthDataScalarFieldEnum]
+
+
+export const PaymentScalarFieldEnum = {
+  id: 'id',
+  amount: 'amount',
+  transactionId: 'transactionId',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  appointmentId: 'appointmentId'
+} as const
+
+export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
+
+
+export const PrescriptionScalarFieldEnum = {
+  id: 'id',
+  followUpDate: 'followUpDate',
+  instructions: 'instructions',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  appointmentId: 'appointmentId',
+  patientId: 'patientId',
+  doctorId: 'doctorId'
+} as const
+
+export type PrescriptionScalarFieldEnum = (typeof PrescriptionScalarFieldEnum)[keyof typeof PrescriptionScalarFieldEnum]
+
+
+export const ReviewScalarFieldEnum = {
+  id: 'id',
+  rating: 'rating',
+  comment: 'comment',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  appointmentId: 'appointmentId',
+  patientId: 'patientId',
+  doctorId: 'doctorId'
+} as const
+
+export type ReviewScalarFieldEnum = (typeof ReviewScalarFieldEnum)[keyof typeof ReviewScalarFieldEnum]
+
+
+export const ScheduleScalarFieldEnum = {
+  id: 'id',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  startTime: 'startTime',
+  endTime: 'endTime',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ScheduleScalarFieldEnum = (typeof ScheduleScalarFieldEnum)[keyof typeof ScheduleScalarFieldEnum]
+
+
+export const DoctorSchedulesScalarFieldEnum = {
+  doctorId: 'doctorId',
+  scheduleId: 'scheduleId',
+  isBooked: 'isBooked',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DoctorSchedulesScalarFieldEnum = (typeof DoctorSchedulesScalarFieldEnum)[keyof typeof DoctorSchedulesScalarFieldEnum]
+
+
 export const SpecialityScalarFieldEnum = {
   id: 'id',
   title: 'title',
@@ -82,6 +337,15 @@ export const SpecialityScalarFieldEnum = {
 } as const
 
 export type SpecialityScalarFieldEnum = (typeof SpecialityScalarFieldEnum)[keyof typeof SpecialityScalarFieldEnum]
+
+
+export const DoctorspecialityScalarFieldEnum = {
+  id: 'id',
+  doctorId: 'doctorId',
+  specialityId: 'specialityId'
+} as const
+
+export type DoctorspecialityScalarFieldEnum = (typeof DoctorspecialityScalarFieldEnum)[keyof typeof DoctorspecialityScalarFieldEnum]
 
 
 export const SortOrder = {

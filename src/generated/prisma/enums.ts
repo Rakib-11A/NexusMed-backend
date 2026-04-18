@@ -9,7 +9,60 @@
 * 🟢 You can import this file directly.
 */
 
+export const UserRole = {
+  SUPER_ADMIN: 'SUPER_ADMIN',
+  ADMIN: 'ADMIN',
+  DOCTOR: 'DOCTOR',
+  PATIENT: 'PATIENT'
+} as const
+
+export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const UserStatus = {
+  BLOCKED: 'BLOCKED',
+  DELETED: 'DELETED',
+  ACTIVE: 'ACTIVE'
+} as const
+
+export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus]
+
+
+export const Gender = {
+  MALE: 'MALE',
+  FEMALE: 'FEMALE'
+} as const
+
+export type Gender = (typeof Gender)[keyof typeof Gender]
+
+
+export const AppointmentStatus = {
+  SCHEDULED: 'SCHEDULED',
+  INPROGRESS: 'INPROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELED: 'CANCELED'
+} as const
+
+export type AppointmentStatus = (typeof AppointmentStatus)[keyof typeof AppointmentStatus]
+
+
+export const PaymentStatus = {
+  PAID: 'PAID',
+  UNPAID: 'UNPAID'
+} as const
+
+export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus]
+
+
+export const BloodGroup = {
+  A_POSITIVE: 'A_POSITIVE',
+  A_NEGATIVE: 'A_NEGATIVE',
+  B_POSITIVE: 'B_POSITIVE',
+  B_NEGATIVE: 'B_NEGATIVE',
+  AB_POSITIVE: 'AB_POSITIVE',
+  AB_NEGATIVE: 'AB_NEGATIVE',
+  O_POSITIVE: 'O_POSITIVE',
+  O_NEGATIVE: 'O_NEGATIVE'
+} as const
+
+export type BloodGroup = (typeof BloodGroup)[keyof typeof BloodGroup]
