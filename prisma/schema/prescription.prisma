@@ -1,6 +1,5 @@
 model Prescription {
-    id String @id @default(uuid())
-
+    id           String   @id @default(uuid(7))
     followUpDate DateTime
     instructions String   @db.Text
     createdAt    DateTime @default(now())
