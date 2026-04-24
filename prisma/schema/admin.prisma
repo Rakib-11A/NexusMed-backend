@@ -1,6 +1,5 @@
 model Admin {
-    id String @id @default(uuid(7))
-
+    id            String    @id @default(uuid(7))
     name          String    @db.VarChar(255)
     email         String    @unique
     profilePhoto  String?
@@ -15,5 +14,5 @@ model Admin {
 
     @@index([email])
     @@index([isDeleted])
-    @@map("amdins")
+    @@map("admins")
 }
